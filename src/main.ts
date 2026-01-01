@@ -10,14 +10,15 @@ interface Sound {
 }
 
 const jsonTextArea = document.getElementById('json') as HTMLTextAreaElement;
-const player = document.getElementById('player') as HTMLIFrameElement;
 const soundsList = document.getElementById('sounds-list') as HTMLUListElement;
+const player = document.getElementById('player') as HTMLAudioElement;
 
 const websiteBase = 'https://thirtydollar.website';
 
 jsonTextArea.addEventListener('change', () => {
     if (!jsonTextArea.value) {
         soundsList.textContent = '';
+        player.controls = false;
         return;
     }
     try {
@@ -29,7 +30,8 @@ jsonTextArea.addEventListener('change', () => {
     </button>
 </li>`).join('\n');
     } catch (error) {
-        soundsList.textContent = 'Invalid JSON';
+        soundsList.innerHTML = '<li>Invalid JSON</li>';
+        player.controls = false;
     }
 });
 
@@ -38,5 +40,6 @@ soundsList.addEventListener('click', e => {
     const button = target.closest('button');
     if (button) {
         player.src = `${websiteBase}/sounds/${button.value}.wav`;
+        player.controls = true;
     }
 });
