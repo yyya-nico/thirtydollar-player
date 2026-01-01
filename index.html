@@ -4,11 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>THIRTY DOLLAR PLAYER</title>
+    <meta name="color-scheme" content="light dark">
   </head>
   <body>
-    <label for="json">Enter the contents of <a href="https://thirtydollar.website/sounds.json" target="_blank">sounds.json</a>:</label><br>
-    <textarea id="json"></textarea><br>
-    <iframe id="file-player" width="300" height="54" frameborder="0"></iframe>
+    <h1>THIRTY DOLLAR PLAYER</h1>
+    <p>
+      <label for="json">Enter the contents of <a href="https://thirtydollar.website/sounds.json" target="_blank">sounds.json</a>:</label><br>
+      <textarea id="json"></textarea>
+    </p>
+    <p>
+      <audio id="player" controls autoplay></audio>
+    </p>
     <ul id="sounds-list"></ul>
     <script type="module" src="/src/main.ts"></script>
   </body>
