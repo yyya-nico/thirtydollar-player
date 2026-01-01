@@ -8,6 +8,7 @@ interface Sound {
     emoji?: string;
     tags?: 'note' | 'percussion'[];
 }
+
 const jsonTextArea = document.getElementById('json') as HTMLTextAreaElement;
 const filePlayer = document.getElementById('file-player') as HTMLIFrameElement;
 const soundsList = document.getElementById('sounds-list') as HTMLUListElement;
