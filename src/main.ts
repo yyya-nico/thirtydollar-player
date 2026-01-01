@@ -40,6 +40,8 @@ soundsList.addEventListener('click', e => {
     const button = target.closest('button');
     if (button) {
         player.src = `${websiteBase}/sounds/${button.value}.wav`;
-        player.controls = true;
+        if (!player.controls) {
+            player.controls = true;
+        }
     }
 });
